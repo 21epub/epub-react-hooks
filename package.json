@@ -1,0 +1,25 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "generate": "node scripts/generate",
+    "lint": "lerna run lint --parallel && skr lint scripts",
+    "test": "lerna run test --concurrency 1",
+    "build": "lerna run build",
+    "build-check": "lerna run build-check",
+    "release": "lerna version --conventional-commits --no-push",
+    "ci": "npm i && npm run lint && npm run build-check && npm run test",
+    "preversion": "npm run ci",
+    "prepack": "npm i && npm run build",
+    "doc:dev": "dumi dev",
+    "doc:build": "dumi build"
+  },
+  "devDependencies": {
+    "dumi": "^1.0.34",
+    "fs-extra": "^9.0.1",
+    "immer": "^7.0.14",
+    "inquirer": "^7.0.6",
+    "lerna": "^3.22.1",
+    "sort-package-json": "^1.44.0"
+  }
+}
